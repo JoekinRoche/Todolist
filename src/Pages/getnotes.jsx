@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import {Redirect} from "react-router-dom";
 import firebase from 'firebase/app';
 import './firebase';
+
 
 export default function GetNotes (props) {
 
@@ -65,7 +67,7 @@ export default function GetNotes (props) {
                         <div id={note.id} style={{ width: '30vw', height: '30vh', margin: '3vh', backgroundColor: 'wheat'}}>
                             {note.note}
                             <div style={{display: 'flex'}}>
-                                <button note-id={note.id}> Edit </button>
+                                <button note-id={note.id}  onClick={(e) => {props.history.push("/editnote/:"+note.id)}}> Edit </button>
                                 <button note-id={note.id} onClick={(e) => deleteNote(e)}> Delete </button>
                             </div>
                         </div>
