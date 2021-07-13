@@ -1,31 +1,19 @@
-
+import { BrowserRouter as Router, Switch, Route,Redirect} from "react-router-dom";
 import React from 'react';
 import './App.css';
-
-export default class App extends React.Component{
-  constructor(props)
-  {
-super(props)
-this.state={
-  name:"Joekin",
-};
-  }
-  ChangeName = () => {
-    setInterval(()=>{
-      this.setState(
-        {
-          name: "John",
-        }
-      )
-    }, 10000);
-  
-}
-render()
-{this.ChangeName();
+import GetNotes from "./Pages/getnotes";
+import CreateNote from "./Pages/createnote";
+export default function App(){
   return(
-  <h1>Hello {this.state.name}</h1>)
-};
+    <Router>
+      <Switch>
+        <Route exact path="/createNote" component={CreateNote}/>
+        <Route exact path="/getNotes" component={GetNotes} />
+        <Redirect to="/getNotes"/>
+      </Switch>
+    </Router>
+  )
 }
-
+  
 
 
