@@ -67,7 +67,7 @@ export default function GetNotes (props) {
                         <div id={note.id} style={{ width: '30vw', height: '30vh', margin: '3vh', backgroundColor: 'wheat'}}>
                             {note.note}
                             <div style={{display: 'flex'}}>
-                                <button note-id={note.id}  onClick={(e) => {props.history.push("/editnote/:"+note.id)}}> Edit </button>
+                                <button note-id={note.id}  onClick={(e) => {var id = e.target.getAttribute('note-id'); props.history.push("/editnote/:"+id)}}> Edit </button>
                                 <button note-id={note.id} onClick={(e) => deleteNote(e)}> Delete </button>
                             </div>
                         </div>
